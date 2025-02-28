@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:id="@+id/topBar"
+    android:elevation="4dp">
+
+    <TextView
+        android:id="@+id/hallo_marii"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="14dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:text="Hallo, Mariia"
+        android:fontFamily="@font/patrickhand_regular"
+        android:textSize="34sp"
+        android:textColor="@color/black"
+        android:lineSpacingExtra="-4sp"
+
+        />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="end"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="7dp"
+        app:srcCompat="@drawable/ic_user"
+        app:tint="@color/black" />
+
+
+</Toolbar>

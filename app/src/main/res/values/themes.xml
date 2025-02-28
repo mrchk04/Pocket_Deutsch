@@ -1,0 +1,13 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.PocketDeutsch" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight">
+        <item name="android:fontFamily">@font/patrickhand_regular</item>
+    </style>
+
+    <style name="Theme.PocketDeutsch" parent="Base.Theme.PocketDeutsch" />
+</resources>
