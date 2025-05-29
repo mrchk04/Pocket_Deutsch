@@ -14,10 +14,10 @@
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="14dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="0dp"
         android:text="Hallo, Mariia"
-        android:fontFamily="@font/patrickhand_regular"
-        android:textSize="34sp"
+        android:fontFamily="@font/playpensans_regular"
+        android:textSize="32sp"
         android:textColor="@color/black"
         android:lineSpacingExtra="-4sp"
 
