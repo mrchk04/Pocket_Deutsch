@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "801963836253",
+    "project_id": "pocket-deutsch",
+    "storage_bucket": "pocket-deutsch.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:801963836253:android:5b30df047e59ad62885eb4",
+        "android_client_info": {
+          "package_name": "com.example.pocketdeutsch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "801963836253-lmleuo1c04a2brsaamhsbopsju7g2fd3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBm5hF12RvzknyTIa5ZwOfn1qPMTxqrf_o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "801963836253-lmleuo1c04a2brsaamhsbopsju7g2fd3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
