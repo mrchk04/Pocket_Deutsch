@@ -6,7 +6,7 @@ import android.util.Patterns
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.example.pocketdeutsch.MainActivity
+import com.example.pocketdeutsch.ui.main.MainActivity
 import com.example.pocketdeutsch.databinding.ActivityRegisterBinding
 import com.example.pocketdeutsch.R
 import com.google.android.gms.auth.api.signin.GoogleSignIn

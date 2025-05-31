@@ -15,9 +15,9 @@
         android:layout_marginLeft="14dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="0dp"
-        android:text="Hallo, Mariia"
+        android:text="Hallo, *name*!"
         android:fontFamily="@font/playpensans_regular"
-        android:textSize="32sp"
+        android:textSize="28sp"
         android:textColor="@color/black"
         android:lineSpacingExtra="-4sp"
 

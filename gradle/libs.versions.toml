@@ -28,9 +28,16 @@ firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version
 google-services = { group = "com.google.gms", name = "google-services", version.ref = "googleServices" }
 play-services-auth = { group = "com.google.android.gms", name = "play-services-auth", version.ref = "playServicesAuth" }
 firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestore" }
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version = "2.48" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version = "2.48" }
+hilt-viewmodel = { group = "androidx.hilt", name = "hilt-lifecycle-viewmodel", version = "1.0.0-alpha03" }
+hilt-androidx-compiler = { group = "androidx.hilt", name = "hilt-compiler", version = "1.0.0" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 googleGmsGoogleServices = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
+hilt = { id = "com.google.dagger.hilt.android", version = "2.48" }
+kapt = { id = "org.jetbrains.kotlin.kapt" }
+
 

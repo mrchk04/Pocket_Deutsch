@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".MainActivity">
+    tools:context=".ui.main.MainActivity">
 
     <include layout="@layout/top_bar"/>
 
@@ -36,11 +36,11 @@
                 android:layout_height="50dp"
                 android:background="@drawable/tab_button1"
                 android:drawableLeft="@drawable/ic_book_open"
-                android:fontFamily="@font/patrickhand_regular"
+                android:fontFamily="@font/playpensans_regular"
                 android:paddingStart="10dp"
                 android:text="Aktuelles Kapitel"
                 android:textColor="@color/gray5"
-                android:textSize="20sp" />
+                android:textSize="16sp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/all_kap"
@@ -50,11 +50,11 @@
                 android:layout_marginStart="10dp"
                 android:background="@drawable/tab_button"
                 android:drawableLeft="@drawable/ic_book_open1"
-                android:fontFamily="@font/patrickhand_regular"
+                android:fontFamily="@font/playpensans_regular"
                 android:paddingStart="10dp"
                 android:text="Alle Kapitel"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="16sp" />
 
         </LinearLayout>
 
@@ -70,10 +70,10 @@
                 android:id="@+id/buche"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/patrickhand_regular"
+                android:fontFamily="@font/playpensans_regular"
                 android:text="Begegnungen A1+"
                 android:textColor="@color/black"
-                android:textSize="36sp" />
+                android:textSize="32sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -86,7 +86,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    android:fontFamily="@font/patrickhand_regular"
+                    android:fontFamily="@font/playpensans_regular"
                     android:text="Kapitel 6/8"
                     android:textColor="@color/black"
                     android:textSize="24sp" />
@@ -156,8 +156,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Kapitel 1"
-                                android:fontFamily="@font/patrickhand_regular"
-                                android:textSize="26sp"
+                                android:fontFamily="@font/playpensans_regular"
+                                android:textSize="24sp"
                                 android:textColor="@color/gray5"/>
 
                             <TextView
@@ -165,8 +165,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Guten Tag"
-                                android:fontFamily="@font/patrickhand_regular"
-                                android:textSize="22sp"
+                                android:fontFamily="@font/playpensans_regular"
+                                android:textSize="20sp"
                                 android:textColor="@color/gray5"/>
                         </LinearLayout>
 
@@ -199,18 +199,18 @@
                                 android:id="@+id/textView3"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/playpensans_regular"
                                 android:text="Kapitel 2"
-                                android:fontFamily="@font/patrickhand_regular"
-                                android:textSize="26sp"
-                                android:textColor="@color/gray5"/>
+                                android:textColor="@color/gray5"
+                                android:textSize="24sp" />
 
                             <TextView
                                 android:id="@+id/textView4"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Erste Kontake am Arbeitsplatz "
-                                android:fontFamily="@font/patrickhand_regular"
-                                android:textSize="20sp"
+                                android:fontFamily="@font/playpensans_regular"
+                                android:textSize="16sp"
                                 android:textColor="@color/gray5"/>
                         </LinearLayout>
 
@@ -244,8 +244,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Kapitel 3"
-                                android:fontFamily="@font/patrickhand_regular"
-                                android:textSize="26sp"
+                                android:fontFamily="@font/playpensans_regular"
+                                android:textSize="24sp"
                                 android:textColor="@color/gray5"/>
 
                             <TextView
@@ -253,8 +253,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Unterwegs in München"
-                                android:fontFamily="@font/patrickhand_regular"
-                                android:textSize="20sp"
+                                android:fontFamily="@font/playpensans_regular"
+                                android:textSize="16sp"
                                 android:textColor="@color/gray5"/>
                         </LinearLayout>
 
@@ -289,8 +289,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Kapitel 4"
-                                android:fontFamily="@font/patrickhand_regular"
-                                android:textSize="26sp"
+                                android:fontFamily="@font/playpensans_regular"
+                                android:textSize="24sp"
                                 android:textColor="@color/gray5"/>
 
                             <TextView
@@ -298,8 +298,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Essen und Trinken"
-                                android:fontFamily="@font/patrickhand_regular"
-                                android:textSize="20sp"
+                                android:fontFamily="@font/playpensans_regular"
+                                android:textSize="16sp"
                                 android:textColor="@color/gray5"/>
                         </LinearLayout>
 
@@ -334,8 +334,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Kapitel 5"
-                                android:fontFamily="@font/patrickhand_regular"
-                                android:textSize="26sp"
+                                android:fontFamily="@font/playpensans_regular"
+                                android:textSize="24sp"
                                 android:textColor="@color/gray5"/>
 
                             <TextView
@@ -343,8 +343,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Alltag"
-                                android:fontFamily="@font/patrickhand_regular"
-                                android:textSize="22sp"
+                                android:fontFamily="@font/playpensans_regular"
+                                android:textSize="20sp"
                                 android:textColor="@color/gray5"/>
                         </LinearLayout>
 
@@ -379,8 +379,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Kapitel 6"
-                                android:fontFamily="@font/patrickhand_regular"
-                                android:textSize="26sp"
+                                android:fontFamily="@font/playpensans_regular"
+                                android:textSize="24sp"
                                 android:textColor="@color/gray5"/>
 
                             <TextView
@@ -388,8 +388,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Reisen"
-                                android:fontFamily="@font/patrickhand_regular"
-                                android:textSize="22sp"
+                                android:fontFamily="@font/playpensans_regular"
+                                android:textSize="20sp"
                                 android:textColor="@color/gray5"/>
                         </LinearLayout>
 
@@ -424,8 +424,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Kapitel 7"
-                                android:fontFamily="@font/patrickhand_regular"
-                                android:textSize="26sp"
+                                android:fontFamily="@font/playpensans_regular"
+                                android:textSize="24sp"
                                 android:textColor="@color/black"/>
 
                             <TextView
@@ -433,8 +433,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Wohnen"
-                                android:fontFamily="@font/patrickhand_regular"
-                                android:textSize="22sp"
+                                android:fontFamily="@font/playpensans_regular"
+                                android:textSize="20sp"
                                 android:textColor="@color/black"/>
                         </LinearLayout>
                     </LinearLayout>
@@ -461,7 +461,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Kapitel 8"
-                                android:fontFamily="@font/patrickhand_regular"
+                                android:fontFamily="@font/playpensans_regular"
                                 android:textSize="24sp"
                                 android:textColor="@color/black"/>
 
@@ -470,8 +470,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Begegnungen und Ereignisse"
-                                android:fontFamily="@font/patrickhand_regular"
-                                android:textSize="20sp"
+                                android:fontFamily="@font/playpensans_regular"
+                                android:textSize="16sp"
                                 android:textColor="@color/black"/>
                         </LinearLayout>
                     </LinearLayout>
