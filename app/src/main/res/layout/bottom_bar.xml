@@ -33,7 +33,7 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageView1"
+                        android:id="@+id/ic_home"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_gravity="center"
@@ -42,7 +42,7 @@
                         app:tint="@color/black" />
 
                     <TextView
-                        android:id="@+id/textView5"
+                        android:id="@+id/homepage"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/playpensans_regular"
@@ -59,7 +59,7 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageView"
+                        android:id="@+id/ic_history"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_gravity="center"
@@ -68,7 +68,7 @@
                         app:tint="@color/black" />
 
                     <TextView
-                        android:id="@+id/textView4"
+                        android:id="@+id/repeat"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/playpensans_regular"
@@ -85,7 +85,7 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageView2"
+                        android:id="@+id/ic_lightbulb"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_gravity="center"
@@ -94,7 +94,7 @@
                         app:tint="@color/black" />
 
                     <TextView
-                        android:id="@+id/textView6"
+                        android:id="@+id/interesting"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/playpensans_regular"

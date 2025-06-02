@@ -1,6 +1,7 @@
 package com.example.pocketdeutsch.ui.components
 
 import android.app.Activity
+import android.content.Intent
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.pocketdeutsch.R
@@ -34,5 +35,17 @@ class TopBarManager(private val activity: Activity) {
 
     fun setGreetingClickListener(action: () -> Unit) {
         greetingTextView.setOnClickListener { action() }
+    }
+    // Метод для навігації на екран профілю
+    fun navigateToProfile(profileActivityClass: Class<*>) {
+        val intent = Intent(activity, profileActivityClass)
+        activity.startActivity(intent)
+    }
+
+    // Метод для швидкої настройки навігації на профіль
+    fun setupProfileNavigation(profileActivityClass: Class<*>) {
+        setProfileClickListener {
+            navigateToProfile(profileActivityClass)
+        }
     }
 }
