@@ -15,8 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PocketDeutsch"
         tools:targetApi="31">
-
-        <!-- Splash Activity - точка входу в додаток -->
+        <activity
+            android:name=".ui.wordDetails.WordDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.vocabulary.VocabularyActivity"
+            android:exported="false" /> <!-- Splash Activity - точка входу в додаток -->
         <activity
             android:name=".ui.intro.IntroActivity"
             android:exported="true"
@@ -27,31 +31,24 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <!-- Main Activity - головний екран додатку -->
+        </activity> <!-- Main Activity - головний екран додатку -->
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.PocketDeutsch">
-        </activity>
-        <!-- Auth activities -->
+            android:theme="@style/Theme.PocketDeutsch" />
         <activity
             android:name=".ui.auth.LoginActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.PocketDeutsch"
-            android:windowSoftInputMode="adjustResize">
-        </activity>
-
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.auth.RegisterActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.PocketDeutsch"
-            android:windowSoftInputMode="adjustResize">
-        </activity>
-
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.profile.ProfileActivity"
             android:exported="false" />

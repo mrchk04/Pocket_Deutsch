@@ -11,13 +11,18 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import com.example.pocketdeutsch.data.model.DataHealthStatus
 import com.example.pocketdeutsch.databinding.ActivityMainBinding
 import com.example.pocketdeutsch.ui.auth.LoginActivity
 import com.example.pocketdeutsch.ui.components.BottomBarManager
 import com.example.pocketdeutsch.ui.components.BottomBarTab
 import com.example.pocketdeutsch.ui.components.TopBarManager
 import com.example.pocketdeutsch.ui.profile.ProfileActivity
+import com.example.pocketdeutsch.ui.vocabulary.VocabularyActivity
+import com.example.pocketdeutsch.utils.DataInitializationManager
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,6 +30,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: MainViewModel
     private lateinit var topBarManager: TopBarManager
     private lateinit var bottomBarManager: BottomBarManager
+    private lateinit var dataInitializationManager: DataInitializationManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +49,7 @@ class MainActivity : AppCompatActivity() {
 
         topBarManager = TopBarManager(this)
         bottomBarManager = BottomBarManager(this)
+        dataInitializationManager = DataInitializationManager(this)
 
         setupObservers()
         setupClickListeners()
@@ -63,15 +70,9 @@ class MainActivity : AppCompatActivity() {
         // Налаштовуємо навігацію для bottom bar
         bottomBarManager.setupNavigation(
             homepageActivityClass = MainActivity::class.java,
-            // Додайте інші активності, коли будуть готові
-            // wiederholungActivityClass = WiederholungActivity::class.java,
-            // interessantActivityClass = InteressantActivity::class.java
         )
 
-        // Альтернативно, можна налаштувати кожну кнопку окремо
         bottomBarManager.setHomepageClickListener {
-            // Оскільки ми вже на головній сторінці, можна нічого не робити
-            // або оновити дані
             refreshData()
         }
 
@@ -93,12 +94,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupObservers() {
-//        viewModel.userData.observe(this, Observer { user ->
-//            if (user != null) {
-//                binding.greeting.text = "Hallo, ${user.firstName}"
-//            }
-//        })
-
         viewModel.userData.observe(this, Observer { user ->
             if (user != null) {
                 // Оновлюємо привітання в top bar через менеджер
@@ -142,8 +137,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.dictionaryCard.setOnClickListener {
-            // TODO: Navigate to dictionary
-            Toast.makeText(this, "Dictionary - TODO", Toast.LENGTH_SHORT).show()
+            navigateToVocabulary()
         }
 
         binding.flashcardsCard.setOnClickListener {
@@ -185,6 +179,100 @@ class MainActivity : AppCompatActivity() {
     private fun navigateToProfile() {
         val intent = Intent(this, ProfileActivity::class.java)
         startActivity(intent)
+    }
+    private fun navigateToVocabulary() {
+        try {
+            val intent = Intent(this, VocabularyActivity::class.java)
+            startActivity(intent)
+//            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+        } catch (e: Exception) {
+            Toast.makeText(this, "Помилка відкриття словника", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun initializeApp() {
+        lifecycleScope.launch {
+            try {
+                val isInitialized = dataInitializationManager.initializeAppData()
+
+                if (isInitialized) {
+                    // Перевіряємо здоров'я даних
+                    val healthStatus = dataInitializationManager.checkDataHealth()
+
+                    if (healthStatus.isHealthy) {
+                        showDataStats(healthStatus)
+                    } else {
+                        showDataWarning(healthStatus)
+                    }
+                } else {
+                    showDataImportInstructions()
+                }
+
+            } catch (e: Exception) {
+                Toast.makeText(
+                    this@MainActivity,
+                    "Помилка ініціалізації: ${e.message}",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        }
+    }
+
+    private fun showDataStats(healthStatus: DataHealthStatus) {
+        val message = """
+            Словник завантажений! 📚
+            
+            📖 Слова: ${healthStatus.wordsCount}
+            🏷️ Теми: ${healthStatus.topicsCount}  
+            📑 Розділи: ${healthStatus.chaptersCount}
+            📚 Підручники: ${healthStatus.textbooksCount}
+        """.trimIndent()
+
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun showDataWarning(healthStatus: DataHealthStatus) {
+        val message = if (healthStatus.error != null) {
+            "Помилка завантаження даних: ${healthStatus.error}"
+        } else {
+            "Недостатньо даних у словнику (${healthStatus.wordsCount} слів)"
+        }
+
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+    }
+
+    private fun showDataImportInstructions() {
+        androidx.appcompat.app.AlertDialog.Builder(this)
+            .setTitle("Необхідно імпортувати дані")
+            .setMessage(
+                """
+                Схоже, що дані ще не імпортовані в Firestore.
+                
+                Щоб імпортувати дані:
+                1. Запустіть Node.js скрипт import-data.js
+                2. Перезапустіть додаток
+                
+                Або зверніться до розробника за допомогою.
+                """.trimIndent()
+            )
+            .setPositiveButton("OK") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setNeutralButton("Спробувати знову") { _, _ ->
+                initializeApp()
+            }
+            .show()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Перевіряємо дані при поверненні до активності
+        lifecycleScope.launch {
+            val healthStatus = dataInitializationManager.checkDataHealth()
+            if (healthStatus.isHealthy && healthStatus.wordsCount > 0) {
+                // Дані в порядку, нічого робити не треба
+            }
+        }
     }
 
 }
