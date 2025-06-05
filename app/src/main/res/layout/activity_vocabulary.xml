@@ -13,14 +13,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="740dp"
+        android:layout_marginTop="60dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.42000002">
+        app:layout_constraintTop_toTopOf="parent">
 
         <!-- Заголовок та кнопки -->
+
+        <!-- Список слів -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,18 +35,18 @@
                 android:id="@+id/vocabulary_title"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
+                android:layout_marginBottom="16dp"
                 android:fontFamily="@font/playpensans_regular"
                 android:text="Словник"
                 android:textColor="@color/black"
-                android:textSize="32sp"
-                android:layout_marginBottom="16dp" />
+                android:textSize="32sp" />
 
             <!-- Кнопки вибору режиму -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:orientation="horizontal"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_all_words"
@@ -65,8 +67,8 @@
                     style="@android:style/Widget.Button"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_marginStart="10dp"
+                    android:layout_weight="1"
                     android:background="@drawable/tab_button1"
                     android:drawableLeft="@drawable/ic_book_open"
                     android:fontFamily="@font/playpensans_regular"
@@ -81,18 +83,18 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginBottom="16dp"
                 android:background="@drawable/rounded_button"
-                android:orientation="horizontal"
                 android:gravity="center_vertical"
+                android:orientation="horizontal"
                 android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:layout_marginBottom="16dp">
+                android:paddingEnd="16dp">
 
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/ic_search"
-                    android:layout_marginEnd="12dp"/>
+                    android:layout_marginEnd="12dp"
+                    android:src="@drawable/ic_search" />
 
                 <EditText
                     android:id="@+id/search_edit_text"
@@ -112,22 +114,22 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_filter_topic"
                     style="@android:style/Widget.Button"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
+                    android:layout_marginEnd="8dp"
                     android:background="@drawable/rounded_button"
                     android:fontFamily="@font/playpensans_regular"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
                     android:text="За темою"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:layout_marginEnd="8dp" />
+                    android:textSize="14sp" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_filter_pos"
@@ -151,7 +153,6 @@
 
         </LinearLayout>
 
-        <!-- Список слів -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -162,11 +163,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scrollbars="vertical"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                tools:listitem="@layout/item_vocabulary_word"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/item_vocabulary_word" />
 
             <!-- Повідомлення про порожній список -->
             <LinearLayout

@@ -1,41 +1,56 @@
 package com.example.pocketdeutsch.data.model
 
+import com.google.firebase.firestore.DocumentId
 import com.google.firebase.firestore.PropertyName
 
 data class UserStatistics(
-    @PropertyName("user_id")
-    val userId: String = "",
+    @DocumentId
+    val id: String = "",
 
-    @PropertyName("learned_words_count")
-    val learnedWordsCount: Int = 0,
+    @get:PropertyName("user_id")
+    @set:PropertyName("user_id")
+    var userId: String = "",
 
-    @PropertyName("completed_chapters")
-    val completedChapters: Int = 0,
+    @get:PropertyName("learned_words_count")
+    @set:PropertyName("learned_words_count")
+    var learnedWordsCount: Int = 0,
 
-    @PropertyName("total_chapters")
-    val totalChapters: Int = 8, // Загальна кількість розділів у підручнику
+    @get:PropertyName("flashcards_completed")
+    @set:PropertyName("flashcards_completed")
+    var flashcardsCompleted: Int = 0,
 
-    @PropertyName("study_days_streak")
-    val studyDaysStreak: Int = 0,
+    @get:PropertyName("average_score")
+    @set:PropertyName("average_score")
+    var averageScore: Double = 0.0,
 
-    @PropertyName("total_study_time_minutes")
-    val totalStudyTimeMinutes: Int = 0,
+    @get:PropertyName("registration_date")
+    @set:PropertyName("registration_date")
+    var registrationDate: String = "",
 
-    @PropertyName("favorite_words_count")
-    val favoriteWordsCount: Int = 0,
+    @get:PropertyName("last_activity_date")
+    @set:PropertyName("last_activity_date")
+    var lastActivityDate: String = "",
 
-    @PropertyName("flashcards_completed")
-    val flashcardsCompleted: Int = 0,
+    @get:PropertyName("study_days_streak")
+    @set:PropertyName("study_days_streak")
+    var studyDaysStreak: Int = 0,
 
-    @PropertyName("average_score")
-    val averageScore: Double = 0.0,
+    @get:PropertyName("total_study_time_minutes")
+    @set:PropertyName("total_study_time_minutes")
+    var totalStudyTimeMinutes: Int = 0,
 
-    @PropertyName("last_activity_date")
-    val lastActivityDate: String = "",
+    @get:PropertyName("completed_chapters")
+    @set:PropertyName("completed_chapters")
+    var completedChapters: Int = 0,
 
-    @PropertyName("registration_date")
-    val registrationDate: String = ""
+    @get:PropertyName("total_chapters")
+    @set:PropertyName("total_chapters")
+    var totalChapters: Int = 0,
+
+    @get:PropertyName("favorite_words_count")
+    @set:PropertyName("favorite_words_count")
+    var favoriteWordsCount: Int = 0
 ) {
-    // Порожній конструктор для Firebase
-    constructor() : this("", 0, 0, 8, 0, 0, 0, 0, 0.0, "", "")
+    // Конструктор без параметрів для Firestore
+    constructor() : this("", "", 0, 0, 0.0, "", "", 0, 0, 0, 0, 0)
 }

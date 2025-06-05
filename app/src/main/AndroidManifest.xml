@@ -15,38 +15,50 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PocketDeutsch"
         tools:targetApi="31">
+
+        <!-- Splash Activity - точка входу в додаток -->
+        <activity
+            android:name=".ui.splash.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.flashcards.FlashcardStudyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.flashcards.FlashcardSetDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.flashcards.FlashcardSetsActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.wordDetails.WordDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".ui.vocabulary.VocabularyActivity"
-            android:exported="false" /> <!-- Splash Activity - точка входу в додаток -->
+            android:exported="false" />
+
         <activity
             android:name=".ui.intro.IntroActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.PocketDeutsch">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false"
+            android:theme="@style/Theme.PocketDeutsch"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity> <!-- Main Activity - головний екран додатку -->
+        <!-- Main Activity - головний екран додатку -->
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
             android:theme="@style/Theme.PocketDeutsch" />
         <activity
             android:name=".ui.auth.LoginActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
             android:theme="@style/Theme.PocketDeutsch"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.auth.RegisterActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
             android:theme="@style/Theme.PocketDeutsch"
             android:windowSoftInputMode="adjustResize" />
         <activity

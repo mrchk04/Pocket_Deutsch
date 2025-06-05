@@ -21,6 +21,7 @@ import com.example.pocketdeutsch.R
 import com.example.pocketdeutsch.data.model.VocabularyItem
 import com.example.pocketdeutsch.ui.components.BottomBarManager
 import com.example.pocketdeutsch.ui.components.TopBarManager
+import com.example.pocketdeutsch.ui.main.MainActivity
 import com.example.pocketdeutsch.ui.profile.ProfileActivity
 import com.example.pocketdeutsch.ui.vocabulary.utils.CustomFilterDialogHelper
 import com.example.pocketdeutsch.ui.wordDetails.WordDetailsActivity
@@ -57,6 +58,23 @@ class VocabularyActivity : AppCompatActivity() {
         observeViewModel()
         setupFilterButtons()
         setupTopBarClickListeners()
+        setupBottomBarNavigation()
+    }
+    private fun setupBottomBarNavigation() {
+        // Налаштовуємо навігацію для bottom bar
+        bottomBarManager.setupNavigation(
+            homepageActivityClass = MainActivity::class.java,
+        )
+
+        bottomBarManager.setWiederholungClickListener {
+            // TODO: Navigate to Wiederholung activity
+            Toast.makeText(this, "Повторення - TODO", Toast.LENGTH_SHORT).show()
+        }
+
+        bottomBarManager.setInteressantClickListener {
+            // TODO: Navigate to Interessant activity
+            Toast.makeText(this, "Цікаве - TODO", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun initializeHelpers() {

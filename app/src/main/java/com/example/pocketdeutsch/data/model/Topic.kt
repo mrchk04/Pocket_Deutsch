@@ -1,23 +1,28 @@
 package com.example.pocketdeutsch.data.model
 
+import com.google.firebase.firestore.DocumentId
 import com.google.firebase.firestore.PropertyName
 
 data class Topic(
-    @PropertyName("id")
+    @DocumentId
     val id: String = "",
 
-    @PropertyName("chapter_id")
-    val chapterId: String = "",
+    // Залишаємо String, але додаємо правильний PropertyName mapping
+    @get:PropertyName("chapter_id")
+    @set:PropertyName("chapter_id")
+    var chapterId: String = "",
 
-    @PropertyName("title")
-    val title: String = "",
+    @get:PropertyName("title")
+    @set:PropertyName("title")
+    var title: String = "",
 
-    @PropertyName("topic_num")
-    val topicNum: Int = 0,
+    @get:PropertyName("topic_num")
+    @set:PropertyName("topic_num")
+    var topicNum: Int = 0,
 
-    @PropertyName("description")
-    val description: String = ""
+    @get:PropertyName("description")
+    @set:PropertyName("description")
+    var description: String = ""
 ) {
-    // Порожній конструктор для Firebase
     constructor() : this("", "", "", 0, "")
 }

@@ -13,13 +13,16 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.pocketdeutsch.data.model.DataHealthStatus
+import com.example.pocketdeutsch.data.model.VocabularyItem
 import com.example.pocketdeutsch.databinding.ActivityMainBinding
 import com.example.pocketdeutsch.ui.auth.LoginActivity
 import com.example.pocketdeutsch.ui.components.BottomBarManager
 import com.example.pocketdeutsch.ui.components.BottomBarTab
 import com.example.pocketdeutsch.ui.components.TopBarManager
+import com.example.pocketdeutsch.ui.flashcards.FlashcardSetsActivity
 import com.example.pocketdeutsch.ui.profile.ProfileActivity
 import com.example.pocketdeutsch.ui.vocabulary.VocabularyActivity
+import com.example.pocketdeutsch.ui.wordDetails.WordDetailsActivity
 import com.example.pocketdeutsch.utils.DataInitializationManager
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
@@ -61,7 +64,7 @@ class MainActivity : AppCompatActivity() {
 
         // Load initial data
         viewModel.loadUserData()
-//        viewModel.loadWordOfTheDay()
+        viewModel.loadWordOfTheDay()
         Log.d("Firebase", "Current user: ${FirebaseAuth.getInstance().currentUser?.email}")
         Log.d("Firebase", "Current user UID: ${FirebaseAuth.getInstance().currentUser?.uid}")
     }
@@ -78,19 +81,19 @@ class MainActivity : AppCompatActivity() {
 
         bottomBarManager.setWiederholungClickListener {
             // TODO: Navigate to Wiederholung activity
-            Toast.makeText(this, "Wiederholung - TODO", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Повторення - TODO", Toast.LENGTH_SHORT).show()
         }
 
         bottomBarManager.setInteressantClickListener {
             // TODO: Navigate to Interessant activity
-            Toast.makeText(this, "Interessant - TODO", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Цікаве - TODO", Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun refreshData() {
         viewModel.loadUserData()
         viewModel.loadWordOfTheDay()
-        Toast.makeText(this, "Daten aktualisiert", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Дані актуалізовано", Toast.LENGTH_SHORT).show()
     }
 
     private fun setupObservers() {
@@ -130,10 +133,20 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    private fun showWordDetails(vocabularyItem: VocabularyItem) {
+        val intent = WordDetailsActivity.Companion.newIntent(this, vocabularyItem.id)
+        startActivity(intent)
+    }
+
     private fun setupClickListeners() {
         binding.wordOfDayCard.setOnClickListener {
-            // TODO: Navigate to word details
-            Toast.makeText(this, "Word details - TODO", Toast.LENGTH_SHORT).show()
+            val currentWord = viewModel.wordOfTheDay.value
+            if (currentWord != null) {
+                // Використовуємо ваш існуючий метод showWordDetails
+                showWordDetails(currentWord)
+            } else {
+                Toast.makeText(this, "Слово ще завантажується...", Toast.LENGTH_SHORT).show()
+            }
         }
 
         binding.dictionaryCard.setOnClickListener {
@@ -141,8 +154,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.flashcardsCard.setOnClickListener {
-            // TODO: Navigate to flashcards
-            Toast.makeText(this, "Flashcards - TODO", Toast.LENGTH_SHORT).show()
+            navigateToFlashcards()
         }
 
         binding.grammarCard.setOnClickListener {
@@ -188,6 +200,11 @@ class MainActivity : AppCompatActivity() {
         } catch (e: Exception) {
             Toast.makeText(this, "Помилка відкриття словника", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun navigateToFlashcards(){
+        val intent = Intent(this, FlashcardSetsActivity::class.java)
+        startActivity(intent)
     }
 
     private fun initializeApp() {

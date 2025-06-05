@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_button"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:padding="16dp"
+    android:layout_marginBottom="12dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground">
+
+    <!-- Іконка теми -->
+    <ImageView
+        android:id="@+id/topic_icon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_book_open"
+        android:layout_marginEnd="16dp"
+        app:tint="@color/black" />
+
+    <!-- Основна інформація -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <!-- Назва набору -->
+        <TextView
+            android:id="@+id/set_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/playpensans_regular"
+            android:text="Флеш-картки: Familie"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Назва теми -->
+        <TextView
+            android:id="@+id/topic_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/playpensans_regular"
+            android:text="Familie"
+            android:textColor="@color/gray5"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Прогрес -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/progress_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/playpensans_regular"
+                android:text="5 з 20 карток"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_marginEnd="12dp" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:layout_height="8dp"
+                android:layout_weight="1"
+                android:max="100"
+                android:progress="25"
+                android:progressDrawable="@drawable/custom_progress" />
+
+            <TextView
+                android:id="@+id/progress_percentage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/playpensans_regular"
+                android:text="25%"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_marginStart="12dp" />
+
+        </LinearLayout>
+
+        <!-- Додаткова інформація -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:id="@+id/confidence_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_button1"
+                android:fontFamily="@font/playpensans_regular"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp"
+                android:text="★★★☆☆"
+                android:textColor="@color/gray5"
+                android:textSize="12sp"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/last_studied"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/playpensans_regular"
+                android:text="Вчора"
+                android:textColor="@color/gray5"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Кнопка навчання -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_study"
+        style="@android:style/Widget.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_button1"
+        android:fontFamily="@font/playpensans_regular"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"
+        android:text="Вчити"
+        android:textColor="@color/gray5"
+        android:textSize="14sp"
+        android:layout_marginStart="12dp" />
+
+</LinearLayout>

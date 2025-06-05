@@ -11,7 +11,6 @@ import com.example.pocketdeutsch.databinding.ActivityIntroBinding
 import com.example.pocketdeutsch.ui.auth.LoginActivity
 import com.example.pocketdeutsch.ui.main.MainActivity
 
-
 class IntroActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityIntroBinding
@@ -29,7 +28,7 @@ class IntroActivity : AppCompatActivity() {
         setupObservers()
         setupClickListeners()
 
-        // Автоматична перевірка авторизації при запуску
+        // Перевірка авторизації при запуску
         viewModel.checkAuthenticationStatus()
     }
 
@@ -60,12 +59,13 @@ class IntroActivity : AppCompatActivity() {
 
     private fun setupClickListeners() {
         binding.getStartedBtn.setOnClickListener {
-            viewModel.onGetStartedClicked()
+            navigateToLoginActivity()
         }
 
-//        binding.alreadyHaveAccount.setOnClickListener {
-//            navigateToLoginActivity()
-//        }
+        // Додайте цей рядок назад, якщо хочете мати окремий текст для входу
+        // binding.alreadyHaveAccount.setOnClickListener {
+        //     navigateToLoginActivity()
+        // }
     }
 
     private fun navigateToMainActivity() {
@@ -78,13 +78,8 @@ class IntroActivity : AppCompatActivity() {
     private fun navigateToLoginActivity() {
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
-        // Не викликаємо finish(), щоб користувач міг повернутися до splash screen
+        finish() // Закриваємо IntroActivity після переходу на Login
     }
 
-    override fun onResume() {
-        super.onResume()
-        // Перевіряємо авторизацію щоразу, коли активність стає активною
-        // (наприклад, коли користувач повертається з екрану логіну)
-        viewModel.checkAuthenticationStatus()
-    }
+    // Видаляємо onResume, щоб IntroActivity не перевіряв авторизацію постійно
 }

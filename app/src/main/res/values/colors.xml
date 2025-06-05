@@ -8,4 +8,12 @@
     <color name="gray4">#FF929292</color>
     <color name="gray5">#FF696969</color>
     <color name="gray6">#FF454545</color>
+
+    <!-- Кольори для рівнів впевненості -->
+    <color name="confidence_excellent">#4CAF50</color>  <!-- Зелений -->
+    <color name="confidence_good">#8BC34A</color>       <!-- Світло-зелений -->
+    <color name="confidence_medium">#FFC107</color>     <!-- Жовтий -->
+    <color name="confidence_low">#FF9800</color>        <!-- Помаранчевий -->
+    <color name="confidence_poor">#F44336</color>       <!-- Червоний -->
+
 </resources>
