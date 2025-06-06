@@ -92,4 +92,12 @@ dependencies {
     // Optional: Testing for ViewModels and LiveData
     testImplementation("androidx.arch.core:core-testing:2.2.0")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    testImplementation("org.mockito:mockito-core:5.1.1")
+    testImplementation("org.mockito:mockito-inline:5.1.1") // Для mockStatic
+    testImplementation("org.mockito.kotlin:mockito-kotlin:4.1.0")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    testImplementation("androidx.arch.core:core-testing:2.2.0")
+
+    // Для мокінга Firebase
+    testImplementation("org.robolectric:robolectric:4.10.3")
 }

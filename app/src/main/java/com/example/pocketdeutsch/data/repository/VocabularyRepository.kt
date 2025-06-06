@@ -9,7 +9,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
 import kotlin.random.Random
 
-class VocabularyRepository(private val context: Context? = null) {
+class VocabularyRepository(private val context: Context? = null) : VocabularyRepositoryInterface {
 
     private val firestore = FirebaseFirestore.getInstance()
     private val vocabularyCollection = firestore.collection("vocabulary_items")
@@ -114,7 +114,7 @@ class VocabularyRepository(private val context: Context? = null) {
     }
 
     // Отримання слів по темі
-    suspend fun getWordsByTopic(topicId: String): List<VocabularyItem> {
+    override suspend fun getWordsByTopic(topicId: String): List<VocabularyItem> {
         return try {
             Log.d(TAG, "🔍 Пошук слів по темі: $topicId")
 
@@ -259,7 +259,7 @@ class VocabularyRepository(private val context: Context? = null) {
     }
 
     // Отримання всіх тем
-    suspend fun getAllTopics(): List<Topic> {
+    override suspend fun getAllTopics(): List<Topic> {
         return try {
             Log.d(TAG, "🔍 Завантаження всіх тем...")
 
@@ -414,7 +414,7 @@ class VocabularyRepository(private val context: Context? = null) {
     }
 
     // Пошук слів
-    suspend fun searchWords(query: String): List<VocabularyItem> {
+    override suspend fun searchWords(query: String): List<VocabularyItem> {
         return try {
             Log.d(TAG, "🔍 Пошук слів за запитом: '$query'")
 
@@ -436,7 +436,7 @@ class VocabularyRepository(private val context: Context? = null) {
     }
 
     // Улюблені слова
-    suspend fun getFavoriteWords(): List<VocabularyItem> {
+    override suspend fun getFavoriteWords(): List<VocabularyItem> {
         return try {
             val userId = getCurrentUserId()
             Log.d(TAG, "🔍 Завантаження улюблених слів для користувача: $userId")
@@ -532,7 +532,7 @@ class VocabularyRepository(private val context: Context? = null) {
         }
     }
 
-    suspend fun addToFavorites(vocabularyItemId: String): Boolean {
+    override suspend fun addToFavorites(vocabularyItemId: String): Boolean {
         return try {
             val userId = getCurrentUserId() ?: return false
             Log.d(TAG, "➕ Додаємо слово $vocabularyItemId до улюблених користувача $userId")

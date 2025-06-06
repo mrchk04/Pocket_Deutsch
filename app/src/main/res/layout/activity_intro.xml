@@ -89,7 +89,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/playpensans_regular"
-                    android:text="Interaktive Wörterbücher"
+                    android:text="Інтерактивний словник"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
@@ -115,7 +115,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/playpensans_regular"
-                    android:text="Effektive Lernkarten"
+                    android:text="Ефективне навчання"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
@@ -140,7 +140,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/playpensans_regular"
-                    android:text="Persönlicher Fortschritt"
+                    android:text="Персоналізований підхід"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
@@ -164,7 +164,7 @@
             android:clickable="true"
             android:focusable="true"
             android:fontFamily="@font/playpensans_regular"
-            android:text="Jetzt beginnen"
+            android:text="Розпочати"
             android:textColor="@color/black"
             android:textSize="24sp"
             android:textAllCaps="false"/>
